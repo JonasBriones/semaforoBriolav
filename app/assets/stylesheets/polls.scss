@@ -12,8 +12,28 @@
 }
 
 .cuadro{
+  font-family: fantasy;
+  font-size: 50px;
+  font-weight: bold;
+  color:#cccccc;
   display:inline-block;
+  padding-top: 10px;
   width: 100px;
   height: 100px;
-  background: #428bca;
+  border-radius: 77px 77px 77px 77px;
+  -moz-border-radius: 77px 77px 77px 77px;
+  -webkit-border-radius: 77px 77px 77px 77px;
+  border: 3px solid #000000;
+}
+
+.color_rojo{
+  background-color: red;
+}
+
+.color_amarillo{
+  background-color: yellow;
+}
+
+.color_verde{
+  background-color: green;
 }
