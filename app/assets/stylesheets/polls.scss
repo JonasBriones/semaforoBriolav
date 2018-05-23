@@ -1,3 +1,19 @@
 // Place all the styles related to the polls controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#motivo{
+  display:none;
+}
+
+#resumen{
+  display:inline-block;
+}
+
+.cuadro{
+  display:inline-block;
+  width: 100px;
+  height: 100px;
+  background: #428bca;
+}

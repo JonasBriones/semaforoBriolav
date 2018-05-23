@@ -1,5 +1,5 @@
 
-
+<hr>
 <h2>Cuadro Resumen </h2>
 <%
 rojo = 0
@@ -14,7 +14,8 @@ verde = 0
     verde = verde + 1
   end
 end %>
-
-<%= verde %>
-<%= amarillo %>
-<%= rojo %>
+<div id="resumen">
+  <div class="cuadro color_rojo" ><%= verde %></div>
+  <div class="cuadro" ><%= amarillo %></div>
+  <div class="cuadro" ><%= rojo %></div>
+</div>
