@@ -1,0 +1,42 @@
+<h1>Semaforo</h1>
+
+<%= form_for @poll do |f| %>
+  <p>
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </p>
+
+  <p>
+    <%= f.label :apellido %><br>
+    <%= f.text_field :apellido %>
+  </p>
+  <p>
+    <%= f.label :rut %><br>
+    <%= f.text_field :rut %>
+  </p>
+  <p>
+    <%= f.label :genero %>
+    <%= f.select :genero, [['Hombre', true], ['Mujer', false]] %>
+  </p>
+  <p>
+    <%= f.label :estado, "Bien" %>
+    <%= f.radio_button :estado, '1'%>
+
+    <%= f.label :estado, "Mas o Menos" %>
+    <%= f.radio_button :estado, '0' %>
+
+    <%= f.label :estado, "Mal" %>
+    <%= f.radio_button :estado, '-1' %>
+  </p>
+  <p>
+  <%= f.label :motivo %><br>
+  <%= f.text_area :motivo %>
+</p>
+  <p>
+    <%= f.submit %>
+  </p>
+
+
+<%= render 'poll_details', :polls => @polls %>
+
+<% end %>

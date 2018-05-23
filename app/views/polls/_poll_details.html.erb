@@ -1,0 +1,20 @@
+
+
+<h2>Cuadro Resumen </h2>
+<%
+rojo = 0
+amarillo = 0
+verde = 0
+@polls.each do |p|
+  if p.estado == -1
+    rojo = rojo + 1
+  elsif p.estado == 0
+    amarillo = amarillo + 1
+  else
+    verde = verde + 1
+  end
+end %>
+
+<%= verde %>
+<%= amarillo %>
+<%= rojo %>
