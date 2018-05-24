@@ -1,4 +1,5 @@
 class PollsController < ApplicationController
+
   def new
     @polls = Poll.all
     @poll = Poll.new
@@ -6,7 +7,11 @@ class PollsController < ApplicationController
 
   def create
     @poll = Poll.new(poll_params)
-    @poll.save
+    if params[:poll][:estado] == "-1"
+      flash[:alert] = "Tenemos tu comentario y trabajaremos en mejorar!!"
+    else
+      flash[:success] = "Gracias por tu respuesta"
+    end
     redirect_to root_path
   end
 

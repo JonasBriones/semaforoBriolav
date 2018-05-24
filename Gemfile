@@ -55,5 +55,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Mis Gemas
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap-sass', '3.2.0.2'
+gem 'autoprefixer-rails'
 gem 'jquery-rails'
+gem 'popper_js', '~> 1.12.9'

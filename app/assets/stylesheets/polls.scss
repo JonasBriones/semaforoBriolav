@@ -23,7 +23,7 @@ $color-3: #e74c3c;
   font-family: fantasy;
   font-size: 50px;
   font-weight: bold;
-  color:#cccccc;
+  color:#F7F5F4;
   display:inline-block;
   padding-top: 10px;
   width: 100px;
@@ -35,15 +35,15 @@ $color-3: #e74c3c;
 }
 
 .color_rojo{
-  background-color: red;
+  background-color: $color-1;
 }
 
 .color_amarillo{
-  background-color: yellow;
+  background-color: $color-2;
 }
 
 .color_verde{
-  background-color: green;
+  background-color: $color-3;
 }
 
 .custom-radios {
