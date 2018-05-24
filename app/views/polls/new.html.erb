@@ -12,23 +12,34 @@
     <%= f.label :genero %>
     <%= f.select :genero, [['Hombre', true], ['Mujer', false]] %>
   </p>
-  <p>
-    <%= f.label :estado, "Bien" %>
-    <%= f.radio_button :estado, '1'%>
-
-    <%= f.label :estado, "Mas o Menos" %>
-    <%= f.radio_button :estado, '0' %>
-
-    <%= f.label :estado, "Mal" %>
-    <%= f.radio_button :estado, '-1' %>
-  </p>
+  <div class="custom-radios">
+    <%= f.radio_button :estado, '1', :id => "color-1" %>
+    <label for="color-1">
+      <span>
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+      </span>
+    </label>
+    <%= f.radio_button :estado, '0', :id => "color-2" %>
+    <label for="color-2">
+      <span>
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+      </span>
+    </label>
+    <%= f.radio_button :estado, '-1', :id => "color-3" %>
+    <label for="color-3">
+      <span>
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+      </span>
+    </label>
+  </div>
   <div id="motivo">
-  <%= f.label :motivo %>
-  <%= f.text_area :motivo %>
-</div>
-  <p>
+    <%= f.label :motivo %>
+    <%= f.text_area :motivo %>
+  </div>
+
+  <div id="agregar">
     <%= f.submit "Agregar"%>
-  </p>
+  </div>
 
 
 <%= render 'poll_details', :polls => @polls %>
