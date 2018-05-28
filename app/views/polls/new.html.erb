@@ -5,50 +5,66 @@
       </div>
 <% end %>
 
-<h1>Semaforo</h1>
+<div class="justify-content-md-center">
+            <div class="col align-self-center">
+                <h1>¿How Are You?</h1>
+            </div>
+            <div class="col align-self-end">
+                <p>¿Como Estás?</p>
+            </div>
+</div>
 
 <%= form_for @poll do |f| %>
-  <p>
-    <%= f.label :nombre %>
-    <%= f.text_field :nombre, maxlength: 255, size: 30 %>
-
-    <%= f.label :rut %>
-    <%= f.text_field :rut, maxlength: 10 %>
-  </p>
-  <p>
-    <%= f.label :genero %>
-    <%= f.select :genero, [['Hombre', true], ['Mujer', false]] %>
-  </p>
-  <div class="custom-radios">
-    <%= f.radio_button :estado, '1', :id => "color-1" %>
-    <label for="color-1">
-      <span>
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
-      </span>
-    </label>
-    <%= f.radio_button :estado, '0', :id => "color-2" %>
-    <label for="color-2">
-      <span>
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
-      </span>
-    </label>
-    <%= f.radio_button :estado, '-1', :id => "color-3" %>
-    <label for="color-3">
-      <span>
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
-      </span>
-    </label>
+  <div class="form-row justify-content-md-center">
+    <div class="form-group col-md-4">
+      <%= f.label :nombre, "Nombre Completo" %>
+      <%= f.text_field :nombre, placeholder: "Ej: Juan Pérez", class: "form-control", maxlength: 255, size: 30 %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :rut %>
+      <%= f.text_field :rut, class: "form-control", placeholder: "12.345.678-9", maxlength: 10 %>
+    </div>
   </div>
-  <div id="motivo">
-    <p><%= f.label :motivo %></p>
-    <%= f.text_area :motivo, maxlenght: 500 %>
+  <br>
+  <div class="form-row justify-content-md-center">
+      <div class="form-group col-md-3">
+        <%= f.label :fnacimiento, "Fecha de Nacimiento" %><br>
+        <%= f.date_select :fnacimiento, :use_month_numbers => true, class: "form-control"%>
+      </div>
+      <div class="form-group col-md-3">
+        <%= f.label :genero, "Género" %><br>
+        <%= f.select :genero, [['Hombre', 'hombre'], ['Mujer', 'mujer'], ['Otro..', 'otro']], class: "form-control" %>
+      </div>
   </div>
 
+<div id="custom-radios">
+    <%=
+      imagen_hash = {
+         1 => "001-sonrisa.png",
+         0 => "003-esceptico.png",
+        -1 => "002-triste.png"
+      }
+      f.collection_radio_buttons( :estado, imagen_hash, :first, :last
+      ) do |b|
+        b.label(:"id" => "label_color_#{b.value}") { image_tag(b.object.last) + b.radio_button }
+      end
+    %>
+</div>
+
+<hr>
+<div id="mensaje_motivo">
+  <h4 class="text_motivo"></h4>
+  <div id="motivo" class="collapse">    
+      <%= f.label :motivo, "Seleccione el motivo" %></br>
+      <%= f.select :motivo, [['Laboral', 'laboral'], ['Personal', 'personal'], ['Ambos', 'ambos']] %>
+  </div>
+<br>
   <div id="agregar">
     <%= f.submit "Agregar"%>
   </div>
+</div>
 
 
-<%= render 'poll_details', :polls => @polls %>
+
 
 <% end %>

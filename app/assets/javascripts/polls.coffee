@@ -4,8 +4,17 @@
 
 $(document).ready ->
   $("input[type=radio]").on "click", ->
+    $("#mensaje_motivo").removeClass();
     @radio = $(this).val();
     if @radio == "-1"
-      $('#motivo').show();
+      $("#mensaje_motivo").addClass('alert-danger');
+      $("h4.text_motivo").html("<h4>Presionaste el Botón de la Carita Triste</h4>");
+      $("#motivo").slideDown();
+    else if @radio == "0"
+      $("#mensaje_motivo").addClass('alert-warning');
+      $("h4.text_motivo").html("<h4>Presionaste el Botón de la Carita Ni fu ni Fa</h4>");
+      $("#motivo").hide();
     else
-      $('#motivo').hide();
+      $("#mensaje_motivo").addClass('alert-success');
+      $("h4.text_motivo").html("<h4>Presionaste el Botón de la Carita Feliz</h4>");
+      $("#motivo").hide();

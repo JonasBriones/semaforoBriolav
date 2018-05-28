@@ -1,16 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html lang="ess">
   <head>
-    <title>Semaforo Demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>¿How Are You?</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body class="text-center">
+  <body>
 
+
+      <div class="container">
         <%= yield %>
-
+      </div>
+      
   </body>
 </html>

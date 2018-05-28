@@ -8,9 +8,9 @@ class PollsController < ApplicationController
   def create
     @poll = Poll.new(poll_params)
     if params[:poll][:estado] == "-1"
-      flash[:alert] = "Tenemos tu comentario y trabajaremos en mejorar!!"
+      flash[:alert] = "Tenemos tu comentario y trabajaremos para mejorar!!"
     else
-      flash[:success] = "Gracias por tu respuesta"
+      flash[:success] = "Gracias por tu respuesta!!!"
     end
     redirect_to root_path
   end
@@ -18,7 +18,7 @@ class PollsController < ApplicationController
 
   private
     def poll_params
-      params.require(:poll).permit(:nombre, :apellido, :estado, :rut, :genero, :motivo)
+      params.require(:poll).permit(:nombre, :fnacimiento, :estado, :rut, :genero, :motivo)
     end
 
 end

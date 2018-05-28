@@ -6,104 +6,43 @@ $color-1: #2ecc71;
 $color-2: #f1c40f;
 $color-3: #e74c3c;
 
-#motivo{
-  display:none;
-  margin-top: 50px;
+#mensaje_motivo{
+  display: block;
+  padding: 5px;
 }
 
-#agregar{
-    margin-top: 30px;
-}
-
-#resumen{
-  display:inline-block;
-}
-
-.cuadro{
-  font-family: fantasy;
-  font-size: 50px;
-  font-weight: bold;
-  color:#F7F5F4;
-  display:inline-block;
-  padding-top: 10px;
-  width: 100px;
-  height: 100px;
-  border-radius: 77px 77px 77px 77px;
-  -moz-border-radius: 77px 77px 77px 77px;
-  -webkit-border-radius: 77px 77px 77px 77px;
-  border: 3px solid #000000;
-}
-
-.color_rojo{
-  background-color: $color-1;
-}
-
-.color_amarillo{
-  background-color: $color-2;
-}
-
-.color_verde{
-  background-color: $color-3;
-}
-
-.custom-radios {
-  display:inline-block;
-  padding-top: 30px;
-  width: 300px;
-  height: 100px;
-  border-radius: 77px 77px 77px 77px;
-  -moz-border-radius: 77px 77px 77px 77px;
-  -webkit-border-radius: 77px 77px 77px 77px;
-  border: 3px solid #000000;
-
-  div {
-    display: inline-block;
-  }
+#custom-radios {
+  display: block;
+  text-align: center;
 
   input[type="radio"] {
-    display: none;
-
-    + label {
-      color: #333;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-
-      span {
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        margin: -1px 4px 0 0;
-        vertical-align: middle;
-        cursor: pointer;
-        border-radius: 50%;
-        border: 2px solid #FFFFFF;
-        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
-        background-repeat: no-repeat;
-        background-position: center;
-        text-align: center;
-        line-height: 44px;
-
-        img {
-          opacity: 0;
-          transition: all .3s ease;
-        }
-      }
-    }
-
-    &#color-1 + label span {
-      background-color: $color-1;
-    }
-
-    &#color-2 + label span {
-      background-color: $color-2;
-    }
-
-    &#color-3 + label span {
-      background-color: $color-3;
-    }
-
-    &:checked + label span img {
-      opacity: 1;
-    }
+      display: none;
   }
+
+  label{
+    width: 150px;
+    height: 150px;
+    margin-left: 10px;
+  }
+
+  label img{
+    width: 150px;
+    height: 150px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 4px;
+  }
+
+  #label_color_1 img{
+    background-color: $color-1;
+  }
+
+  #label_color_0 img{
+    background-color: $color-2;
+  }
+
+  #label_color_-1 img{
+    background-color: $color-3;
+  }
+
 }
