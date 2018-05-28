@@ -1,24 +1,24 @@
 class PollsController < ApplicationController
 
+  def index
+    @estado = State.includes(:polls).group(:id).pluck( "states.descripcion, count(polls.id)" )
+  end
+
   def new
-    @polls = Poll.all
     @poll = Poll.new
   end
 
   def create
     @poll = Poll.new(poll_params)
-    if params[:poll][:estado] == "-1"
-      flash[:alert] = "Tenemos tu comentario y trabajaremos para mejorar!!"
-    else
-      flash[:success] = "Gracias por tu respuesta!!!"
-    end
+    @poll.save
+    flash[:success] = "Gracias por tu respuesta!!!"
     redirect_to root_path
   end
 
 
   private
     def poll_params
-      params.require(:poll).permit(:nombre, :fnacimiento, :estado, :rut, :genero, :motivo)
+      params.require(:poll).permit(:nombre, :fnacimiento, :state_id, :rut, :genero, :motivo)
     end
 
 end

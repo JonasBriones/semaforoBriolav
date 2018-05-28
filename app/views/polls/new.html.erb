@@ -29,24 +29,18 @@
   <div class="form-row justify-content-md-center">
       <div class="form-group col-md-3">
         <%= f.label :fnacimiento, "Fecha de Nacimiento" %><br>
-        <%= f.date_select :fnacimiento, :use_month_numbers => true, class: "form-control"%>
+        <%= f.date_field :fnacimiento, :id => "datepicker", class: "form-control"%>
       </div>
       <div class="form-group col-md-3">
         <%= f.label :genero, "Género" %><br>
-        <%= f.select :genero, [['Hombre', 'hombre'], ['Mujer', 'mujer'], ['Otro..', 'otro']], class: "form-control" %>
+        <%= f.select :genero, [['Hombre', 'Hombre'], ['Mujer', 'Mujer'], ['Otro..', 'Otro']], class: "form-control" %>
       </div>
   </div>
 
 <div id="custom-radios">
-    <%=
-      imagen_hash = {
-         1 => "001-sonrisa.png",
-         0 => "003-esceptico.png",
-        -1 => "002-triste.png"
-      }
-      f.collection_radio_buttons( :estado, imagen_hash, :first, :last
+    <%= f.collection_radio_buttons( :state_id, State.all, :id, :imagen
       ) do |b|
-        b.label(:"id" => "label_color_#{b.value}") { image_tag(b.object.last) + b.radio_button }
+        b.label(:"id" => "label_color_#{b.object.id}") { image_tag(b.object.imagen) + b.radio_button }
       end
     %>
 </div>
@@ -54,7 +48,7 @@
 <hr>
 <div id="mensaje_motivo">
   <h4 class="text_motivo"></h4>
-  <div id="motivo" class="collapse">    
+  <div id="motivo" class="collapse">
       <%= f.label :motivo, "Seleccione el motivo" %></br>
       <%= f.select :motivo, [['Laboral', 'laboral'], ['Personal', 'personal'], ['Ambos', 'ambos']] %>
   </div>
@@ -64,7 +58,6 @@
   </div>
 </div>
 
-
-
-
 <% end %>
+
+<%= link_to 'Ir a graficos', polls_path%>

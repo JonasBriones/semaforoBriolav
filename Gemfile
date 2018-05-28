@@ -61,3 +61,5 @@ gem 'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.12.9'
 gem "chartkick"
+gem 'highcharts-rails'
+gem 'bootstrap-datepicker-rails'
