@@ -13,7 +13,7 @@ $(document).ready ->
     else if @radio == "0"
       $("#mensaje_motivo").addClass('alert-warning');
       $("h4.text_motivo").html("<h4>Presionaste el Botón de la Carita Ni fu ni Fa</h4>");
-      $("#motivo").hide();
+      $("#motivo").slideDown();
     else
       $("#mensaje_motivo").addClass('alert-success');
       $("h4.text_motivo").html("<h4>Presionaste el Botón de la Carita Feliz</h4>");
