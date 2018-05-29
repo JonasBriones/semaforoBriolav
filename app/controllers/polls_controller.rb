@@ -2,6 +2,7 @@ class PollsController < ApplicationController
 
   def index
     @estado = State.includes(:polls).group(:id).pluck( "states.descripcion, count(polls.id)" )
+    @genero = Poll.group(:genero).count
   end
 
   def new
