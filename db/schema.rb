@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_28_225917) do
+ActiveRecord::Schema.define(version: 2018_05_29_141905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.integer "poll_id"
+    t.string "enviado_por"
+    t.text "respuesta"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "polls", force: :cascade do |t|
     t.string "nombre"

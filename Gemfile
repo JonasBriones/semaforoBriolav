@@ -63,3 +63,4 @@ gem 'popper_js', '~> 1.12.9'
 gem "chartkick"
 gem 'highcharts-rails'
 gem 'bootstrap-datepicker-rails'
+gem 'rut_validation'

@@ -1,0 +1,37 @@
+<h1>Entregar feedback</h1>
+
+<table>
+  <tr>
+      <td>Nombre Completo :</td>
+      <td><%= @poll.nombre %></td>
+  </tr>
+  <tr>
+      <td>Rut :</td>
+      <td><%= @poll.rut %></td>
+  </tr>
+  <tr>
+      <td>Estado :</td>
+      <td><%= @poll.state.descripcion %></td>
+  </tr>
+</table>
+
+<hr>
+
+<%= form_for @feedback do |f| %>
+  <%= f.hidden_field :poll_id, :value => @poll.id %>
+
+  <div class="form-group col-md-3">
+    <%= f.label :enviado_por, "Persona que responde" %><br>
+    <%= f.select :enviado_por, [['Jefe', 'Jefe'], ['Supervisor', 'Supervisor'], ['Otro..', 'Otro']], class: "form-control" %>
+  </div>
+
+  <div class="form-group col-md-3">
+    <%= f.label :respuesta, "Respuesta" %><br>
+    <%= f.text_field :respuesta,  class: "form-control" %>
+  </div>
+
+  <%= f.submit "Enviar" %>
+
+<% end %>
+
+<%= link_to 'Ir a feedbacks', feedbacks_path%>
