@@ -22,7 +22,7 @@
     </div>
     <div class="form-group col-md-4">
       <%= f.label :rut %>
-      <%= f.text_field :rut, class: "form-control", placeholder: "12.345.678-9", maxlength: 10 %>
+      <%= f.text_field :rut, class: "form-control", placeholder: "12345678-9", maxlength: 10 %>
     </div>
   </div>
   <br>
@@ -50,7 +50,7 @@
   <h4 class="text_motivo"></h4>
   <div id="motivo" class="collapse">
       <%= f.label :motivo, "Seleccione el motivo" %></br>
-      <%= f.select :motivo, [['Laboral', 'laboral'], ['Personal', 'personal'], ['Ambos', 'ambos']] %>
+      <%= f.select :motivo, [['Laboral', 'Laboral'], ['Personal', 'Personal'], ['Ambos', 'Ambos']] %>
   </div>
 <br>
   <div id="agregar">
@@ -60,4 +60,6 @@
 
 <% end %>
 
-<%= link_to 'Ir a graficos', polls_path%>
+<%= link_to 'Ir a graficos', polls_path %>
+<br>
+<%= link_to 'Ir a feedbacks', feedbacks_path%>
