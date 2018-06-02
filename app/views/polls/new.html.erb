@@ -1,4 +1,3 @@
-
 <% flash.each do |key, value| %>
       <div class="<%= flash_class(key) %>">
             <%= value %>
@@ -29,7 +28,7 @@
   <div class="form-row justify-content-md-center">
       <div class="form-group col-md-3">
         <%= f.label :fnacimiento, "Fecha de Nacimiento" %><br>
-        <%= f.date_field :fnacimiento, :id => "datepicker", class: "form-control"%>
+        <%= f.date_field :fnacimiento, :id => "fnacimiento", class: "form-control"%>
       </div>
       <div class="form-group col-md-3">
         <%= f.label :genero, "Género" %><br>
