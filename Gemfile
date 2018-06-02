@@ -64,4 +64,5 @@ gem 'popper_js', '~> 1.12.9'
 gem "chartkick"
 gem 'highcharts-rails'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+gem 'bootstrap-datepicker-rails'
 gem 'rut_validation'
