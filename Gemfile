@@ -64,3 +64,4 @@ gem "chartkick"
 gem 'highcharts-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'rut_validation'
+gem 'wdm', '>= 0.1.0'
