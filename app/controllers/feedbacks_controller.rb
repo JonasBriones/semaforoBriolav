@@ -1,7 +1,7 @@
 class FeedbacksController < ApplicationController
 
   def index
-    @polls = Poll.where("state_id > 1")
+    @polls = Poll.where('polls.state_id > 1')
   end
 
   def new

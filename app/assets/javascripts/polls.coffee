@@ -2,8 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
-  $("input[type=radio]").on "click", ->
+$ ->
+  $("#custom-radios input[type=radio]").on "click", ->
     $("#mensaje_motivo").removeClass();
     @radio = $(this).val();
     if @radio == "3"
@@ -18,5 +18,3 @@ $(document).ready ->
       $("#mensaje_motivo").addClass('alert-success');
       $("h4.text_motivo").html("<h4>Presionaste el Botón de la Carita Feliz</h4>");
       $("#motivo").hide();
-
-  $("#datepicker").datepicker({format: 'dd/mm/yyyy'});
