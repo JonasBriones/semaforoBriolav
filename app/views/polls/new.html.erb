@@ -12,29 +12,30 @@
                 <p>¿Como Estás?</p>
             </div>
 </div>
-
+<div class="justify-content-md-center">
 <%= form_for @poll do |f| %>
   <div class="form-row justify-content-md-center">
     <div class="form-group col-md-4">
       <%= f.label :nombre, "Nombre Completo" %>
-      <%= f.text_field :nombre, placeholder: "Ej: Juan Pérez", class: "form-control", maxlength: 255, size: 30 %>
+      <%= f.text_field :nombre, placeholder: "Ej: Juan Pérez", class: "form-control", maxlength: 255, size: 30, :required => true %>
     </div>
     <div class="form-group col-md-4">
       <%= f.label :rut %>
-      <%= f.text_field :rut, class: "form-control", placeholder: "12345678-9", maxlength: 10 %>
+      <%= f.text_field :rut, class: "form-control", placeholder: "12345678-9", maxlength: 10, :required => true %>
     </div>
   </div>
   <br>
   <div class="form-row justify-content-md-center">
       <div class="form-group col-md-3">
         <%= f.label :fnacimiento, "Fecha de Nacimiento" %><br>
-        <%= f.date_field :fnacimiento, :id => "fnacimiento", class: "form-control"%>
+        <%= f.date_field :fnacimiento, :id => "fnacimiento", class: "form-control", :required => true%>
       </div>
       <div class="form-group col-md-3">
         <%= f.label :genero, "Género" %><br>
-        <%= f.select :genero, [['Hombre', 'Hombre'], ['Mujer', 'Mujer'], ['Otro..', 'Otro']], {}, {:class => "form-control"} %>
+        <%= f.select :genero, [['Hombre', 'Hombre'], ['Mujer', 'Mujer'], ['Otro..', 'Otro']], {}, {:class => "form-control "} %>
       </div>
   </div>
+</div>
 
 <div id="custom-radios">
     <%= f.collection_radio_buttons( :state_id, State.all, :id, :imagen
@@ -49,7 +50,7 @@
   <h4 class="text_motivo"></h4>
   <div id="motivo" class="collapse">
       <%= f.label :motivo, "Seleccione el motivo" %></br>
-      <%= f.select :motivo, [['Laboral', 'Laboral'], ['Personal', 'Personal'], ['Ambos', 'Ambos']] %>
+      <%= f.select :motivo, [['Laboral', 'Laboral'], ['Personal', 'Personal'], ['Ambos', 'Ambos']], {}, {:class => "form-control col-4"} %>
   </div>
 <br>
   <div id="agregar">
