@@ -6,20 +6,31 @@ class PollsController < ApplicationController
   end
 
   def new
-    @poll = Poll.new
+    @user = User.new
+    @user.polls.build
   end
 
   def create
-    @poll = Poll.new(poll_params)
-    @poll.save
-    flash[:success] = "Gracias por tu respuesta!!!"
+    if User.exists?( :rut => poll_create[:rut] )
+      @user = User.find_by_rut( poll_create[:rut] )
+      @user.update_attributes(poll_create)
+      flash[:success] = "Usurio registrado, se agrega respuesta!!!"
+    else
+      @user = User.new(poll_create)
+      @user.save
+      flash[:alert] = "Usurio no registrado, se agrega respuesta!!!"
+    end
     redirect_to root_path
   end
 
+  def update
+
+  end
 
   private
-    def poll_params
-      params.require(:poll).permit(:nombre, :fnacimiento, :state_id, :rut, :genero, :motivo)
+    def poll_create
+      params.require(:user).permit(:nombre, :fnacimiento, :rut, :genero, polls_attributes: [:state_id, :motivo, :user_id])
     end
+
 
 end

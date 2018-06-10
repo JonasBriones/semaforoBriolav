@@ -22,15 +22,15 @@
 
   <div class="form-group col-md-3">
     <%= f.label :enviado_por, "Persona que responde" %><br>
-    <%= f.select :enviado_por, [['Jefe', 'Jefe'], ['Supervisor', 'Supervisor'], ['Otro..', 'Otro']], class: "form-control" %>
+    <%= f.select :enviado_por, [['Jefe', 'Jefe'], ['Supervisor', 'Supervisor'], ['Otro..', 'Otro']], {}, {:class => "form-control"} %>
   </div>
 
   <div class="form-group col-md-3">
-    <%= f.label :respuesta, "Respuesta" %><br>
+    <%= f.label :respuesta, "Respuestas" %><br>
     <%= f.text_area :respuesta, cols: 100, rows: 10 %>
   </div>
 
-  <%= f.submit "Enviar" %>
+  <%= f.submit "Enviar", :class => "btn btn-primary" %>
 
 <% end %>
 

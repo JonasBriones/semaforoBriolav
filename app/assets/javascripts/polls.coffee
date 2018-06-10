@@ -18,3 +18,14 @@ $ ->
       $("#mensaje_motivo").addClass('alert-success');
       $("h4.text_motivo").html("<h4>Presionaste el Botón de la Carita Feliz</h4>");
       $("#motivo").hide();
+
+  $("#user_rut").blur ->
+    @rut = $("#user_rut").val()
+    $.ajax 'users/search_user',
+      type: 'GET',
+      dataType: 'JSON',
+      data:
+        rut: @rut,
+      asnyc: false,
+      success: (data) ->
+        $('input[id=user_polls_attributes_0_user_id]').val(data.id)

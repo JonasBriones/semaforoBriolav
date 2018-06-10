@@ -1,7 +1,7 @@
 class FeedbacksController < ApplicationController
 
   def index
-    @polls = Poll.where('polls.state_id > 1')
+    @polls = Poll.where('polls.state_id > 1').group(:rut, :id, :name).count(:rut)
   end
 
   def new

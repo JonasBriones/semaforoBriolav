@@ -13,7 +13,7 @@
             </div>
 </div>
 
-<%= form_for @poll do |f| %>
+<%= form_for @user, :url => { :controller => "polls", :action => "create" } do |f| %>
   <div class="form-row justify-content-md-center">
     <div class="form-group col-md-4">
       <%= f.label :nombre, "Nombre Completo" %>
@@ -32,28 +32,30 @@
       </div>
       <div class="form-group col-md-3">
         <%= f.label :genero, "Género" %><br>
-        <%= f.select :genero, [['Hombre', 'Hombre'], ['Mujer', 'Mujer'], ['Otro..', 'Otro']], class: "form-control" %>
+        <%= f.select :genero, [['Hombre', 'Hombre'], ['Mujer', 'Mujer'], ['Otro..', 'Otro']], {}, {:class => "form-control" } %>
       </div>
   </div>
-
-<div id="custom-radios">
-    <%= f.collection_radio_buttons( :state_id, State.all, :id, :imagen
-      ) do |b|
-        b.label(:"id" => "label_color_#{b.object.id}") { image_tag(b.object.imagen) + b.radio_button }
-      end
-    %>
-</div>
-
-<hr>
-<div id="mensaje_motivo">
-  <h4 class="text_motivo"></h4>
-  <div id="motivo" class="collapse">
-      <%= f.label :motivo, "Seleccione el motivo" %></br>
-      <%= f.select :motivo, [['Laboral', 'Laboral'], ['Personal', 'Personal'], ['Ambos', 'Ambos']] %>
+<%= f.fields_for :polls do |ff| %>
+  <%= ff.hidden_field :user_id%>
+  <div id="custom-radios">
+      <%= ff.collection_radio_buttons( :state_id, State.all, :id, :imagen
+        ) do |b|
+          b.label(:"id" => "label_color_#{b.object.id}") { image_tag(b.object.imagen) + b.radio_button }
+        end
+      %>
   </div>
+
+  <hr>
+  <div id="mensaje_motivo">
+    <h4 class="text_motivo"></h4>
+    <div id="motivo" class="collapse">
+        <%= ff.label :motivo, "Seleccione el motivo" %></br>
+        <%= ff.select :motivo, [['Laboral', 'Laboral'], ['Personal', 'Personal'], ['Ambos', 'Ambos']] %>
+    </div>
+<% end %>
 <br>
   <div id="agregar">
-    <%= f.submit "Agregar"%>
+    <%= f.submit "Agregar", :class => "btn btn-success" %>
   </div>
 </div>
 
