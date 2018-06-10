@@ -1,0 +1,33 @@
+<h1>Respuesta usuario : </h1>
+<%= @user.nombre %>
+<br>
+<%= @user.rut %>
+<hr>
+<table id="feedback_table" class="display responsive no-wrap" >
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Estado</th>
+      <th>Motivo</th>
+      <th>Feedback</th>
+      <th>Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.polls.each do |p| %>
+      <tr>
+        <td><%= p.created_at.strftime("%Y-%m-%d") %></td>
+        <td><%= p.state.nombre %></td>
+        <td><%= p.motivo %></td>
+        <td><%= p.feedbacks.count %></td>
+        <td>
+          <%= link_to image_tag('respuesta.png'), new_feedback_path( :id => p.id ), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Ir a graficos', polls_path, remote: true %>
+<br>
+<%= link_to 'Ver participación', users_path%>

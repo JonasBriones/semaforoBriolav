@@ -1,0 +1,27 @@
+<h1>Participación de usuarios</h1>
+<table id="feedback_table" class="display responsive no-wrap" >
+  <thead>
+    <tr>
+      <th>Rut</th>
+      <th>Nombre</th>
+      <th>Respuestas</th>
+      <th>Estados</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.each do |p| %>
+      <tr>
+        <td><%= p.rut %></td>
+        <td><%= p.nombre %></td>
+        <td><%= p.polls.count %></td>
+        <td>
+          <%= link_to image_tag('respuesta.png'), poll_path( p.id ), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Ir a graficos', polls_path, remote: true %>
+<br>
+<%= link_to 'Ir a formulario', root_path, remote: true%>

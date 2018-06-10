@@ -3,11 +3,11 @@
 <table>
   <tr>
       <td>Nombre Completo :</td>
-      <td><%= @poll.nombre %></td>
+      <td><%= @poll.user.nombre %></td>
   </tr>
   <tr>
       <td>Rut :</td>
-      <td><%= @poll.rut %></td>
+      <td><%= @poll.user.rut %></td>
   </tr>
   <tr>
       <td>Estado :</td>
@@ -16,13 +16,17 @@
 </table>
 
 <hr>
-
+<h4>Ultimas respuestas</h4>
+  <% @poll.feedbacks.each do |p| %>
+  <%= p.enviado_por%> -> <%= p.respuesta %> <br>
+  <% end %>
+<hr>
 <%= form_for @feedback do |f| %>
   <%= f.hidden_field :poll_id, :value => @poll.id %>
 
   <div class="form-group col-md-3">
     <%= f.label :enviado_por, "Persona que responde" %><br>
-    <%= f.select :enviado_por, [['Jefe', 'Jefe'], ['Supervisor', 'Supervisor'], ['Otro..', 'Otro']], {}, {:class => "form-control"} %>
+    <%= f.select :enviado_por, [['Jefe', 'Jefe'], ['Supervisor', 'Supervisor'], ['Otro..', 'Otro']], {}, :class=> "form-control" %>
   </div>
 
   <div class="form-group col-md-3">
@@ -34,4 +38,4 @@
 
 <% end %>
 
-<%= link_to 'Ir a feedbacks', feedbacks_path%>
+<%= link_to 'Ver participación', users_path%>

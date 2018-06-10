@@ -1,20 +1,20 @@
 class FeedbacksController < ApplicationController
 
   def index
-    @polls = Poll.where('polls.state_id > 1').group(:rut, :id, :name).count(:rut)
+    @user = User.all
   end
 
   def new
-    logger.debug params.inspect
     @poll = Poll.find_by_id(params[:id])
     @feedback = Feedback.new
   end
 
   def create
     @feedback = Feedback.new(feedback_params)
-    @feedback.save
+    user = User.joins(:polls).select("users.id").where("polls.id = #{feedback_params[:poll_id]}").group('users.id').first
     flash[:success] = "Se envio tu respuesta!!!"
-    redirect_to feedbacks_path
+    @feedback.save
+    redirect_to poll_path(user.id)
   end
 
   private

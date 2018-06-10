@@ -12,23 +12,23 @@
                 <p>¿Como Estás?</p>
             </div>
 </div>
-
+<div class="justify-content-md-center">
 <%= form_for @user, :url => { :controller => "polls", :action => "create" } do |f| %>
   <div class="form-row justify-content-md-center">
     <div class="form-group col-md-4">
       <%= f.label :nombre, "Nombre Completo" %>
-      <%= f.text_field :nombre, placeholder: "Ej: Juan Pérez", class: "form-control", maxlength: 255, size: 30 %>
+      <%= f.text_field :nombre, placeholder: "Ej: Juan Pérez", class: "form-control", maxlength: 255, size: 30, :required => true %>
     </div>
     <div class="form-group col-md-4">
       <%= f.label :rut %>
-      <%= f.text_field :rut, class: "form-control", placeholder: "12345678-9", maxlength: 10 %>
+      <%= f.text_field :rut, class: "form-control", placeholder: "12345678-9", maxlength: 10, :required => true %>
     </div>
   </div>
   <br>
   <div class="form-row justify-content-md-center">
       <div class="form-group col-md-3">
         <%= f.label :fnacimiento, "Fecha de Nacimiento" %><br>
-        <%= f.date_field :fnacimiento, :id => "fnacimiento", class: "form-control"%>
+        <%= f.date_field :fnacimiento, :id => "fnacimiento", class: "form-control", :required => true%>
       </div>
       <div class="form-group col-md-3">
         <%= f.label :genero, "Género" %><br>
@@ -50,12 +50,12 @@
     <h4 class="text_motivo"></h4>
     <div id="motivo" class="collapse">
         <%= ff.label :motivo, "Seleccione el motivo" %></br>
-        <%= ff.select :motivo, [['Laboral', 'Laboral'], ['Personal', 'Personal'], ['Ambos', 'Ambos']] %>
+        <%= ff.select :motivo, [['Laboral', 'Laboral'], ['Personal', 'Personal'], ['Ambos', 'Ambos']], {}, {:class => "form-control col-4"} %>
     </div>
 <% end %>
 <br>
   <div id="agregar">
-    <%= f.submit "Agregar", :class => "btn btn-success" %>
+    <%= f.submit "Agregar" , class: "btn btn-primary"%>
   </div>
 </div>
 
@@ -63,4 +63,4 @@
 
 <%= link_to 'Ir a graficos', polls_path %>
 <br>
-<%= link_to 'Ir a feedbacks', feedbacks_path%>
+<%= link_to 'Ver participación', users_path%>
