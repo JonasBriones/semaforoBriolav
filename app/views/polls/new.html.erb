@@ -1,9 +1,8 @@
 <% flash.each do |key, value| %>
-      <div class="<%= flash_class(key) %>">
-            <%= value %>
-      </div>
+  <div class="<%= flash_class(key) %>">
+    <%= value %>
+  </div>
 <% end %>
-
 <div class="justify-content-md-center">
             <div class="col align-self-center">
                 <h1>¿How Are You?</h1>
@@ -16,12 +15,12 @@
 <%= form_for @user, :url => { :controller => "polls", :action => "create" } do |f| %>
   <div class="form-row justify-content-md-center">
     <div class="form-group col-md-4">
-      <%= f.label :nombre, "Nombre Completo" %>
-      <%= f.text_field :nombre, placeholder: "Ej: Juan Pérez", class: "form-control", maxlength: 255, size: 30, :required => true %>
-    </div>
-    <div class="form-group col-md-4">
       <%= f.label :rut %>
       <%= f.text_field :rut, class: "form-control", placeholder: "12345678-9", maxlength: 10, :required => true %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :nombre, "Nombre Completo" %>
+      <%= f.text_field :nombre, placeholder: "Ej: Juan Pérez", class: "form-control", maxlength: 255, size: 30, :required => true %>
     </div>
   </div>
   <br>
@@ -45,7 +44,6 @@
       %>
   </div>
 
-  <hr>
   <div id="mensaje_motivo">
     <h4 class="text_motivo"></h4>
     <div id="motivo" class="collapse">
@@ -53,14 +51,9 @@
         <%= ff.select :motivo, [['Laboral', 'Laboral'], ['Personal', 'Personal'], ['Ambos', 'Ambos']], {}, {:class => "form-control col-4"} %>
     </div>
 <% end %>
-<br>
   <div id="agregar">
     <%= f.submit "Agregar" , class: "btn btn-primary"%>
   </div>
 </div>
 
 <% end %>
-
-<%= link_to 'Ir a graficos', polls_path %>
-<br>
-<%= link_to 'Ver participación', users_path%>

@@ -1,13 +1,10 @@
-<h1>Gráfica de respuestas</h1>
-
 
 <h3>Por estado</h3>
-<%= pie_chart @estado %>
+<%= pie_chart @estado,
+    colors: ['#FF6347', '#FFFF00', '#32CD32' ]
+%>
 <hr>
 <h3>Por genero</h3>
-<%= bar_chart @genero %>
-
-
-<%= link_to 'Ir a formulario', root_path, remote: true%>
-<br>
-<%= link_to 'Ver participación', users_path%>
+<%= column_chart @genero,
+    colors: ['#1E90FF', '#20B2AA' ]
+%>

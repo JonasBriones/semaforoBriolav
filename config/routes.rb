@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  root 'polls#new'
+  root 'pages#index'
 
+  resources :pages
   resources :polls
   resources :feedbacks
+  
   resources :users do
     collection do
       get 'search_user'

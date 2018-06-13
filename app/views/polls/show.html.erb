@@ -1,7 +1,7 @@
-<h1>Respuesta usuario : </h1>
-<%= @user.nombre %>
+<h3>Respuesta usuario : </h3>
+Nombre: <%= @user.nombre %>
 <br>
-<%= @user.rut %>
+RUT: <%= @user.rut %>
 <hr>
 <table id="feedback_table" class="display responsive no-wrap" >
   <thead>
@@ -27,7 +27,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to 'Ir a graficos', polls_path, remote: true %>
-<br>
-<%= link_to 'Ver participación', users_path%>

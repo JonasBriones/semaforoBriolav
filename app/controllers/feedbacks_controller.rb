@@ -7,6 +7,7 @@ class FeedbacksController < ApplicationController
   def new
     @poll = Poll.find_by_id(params[:id])
     @feedback = Feedback.new
+    render layout: 'dashboard'
   end
 
   def create

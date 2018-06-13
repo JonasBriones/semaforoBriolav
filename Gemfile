@@ -70,3 +70,4 @@ gem 'highcharts-rails'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'rut_validation'
+gem "font-awesome-rails"

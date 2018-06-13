@@ -3,10 +3,12 @@ class PollsController < ApplicationController
   def index
     @estado = State.includes(:polls).group(:id).pluck( "states.descripcion, count(polls.id)" )
     @genero = User.group(:genero).count
+    render layout: 'dashboard'
   end
 
   def show
     @user = User.find_by_id(params[:id])
+    render layout: 'dashboard'
   end
 
   def new
@@ -24,7 +26,7 @@ class PollsController < ApplicationController
       @user.save
       flash[:alert] = "Usuario no registrado, se agrega respuesta!!!"
     end
-    redirect_to root_path
+    redirect_to new_path
   end
 
 

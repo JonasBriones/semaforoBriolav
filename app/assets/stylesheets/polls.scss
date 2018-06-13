@@ -11,6 +11,10 @@ $color-3: #e74c3c;
   padding: 5px;
 }
 
+#agregar {
+  display: none;
+}
+
 #custom-radios {
   display: block;
   text-align: center;
@@ -28,9 +32,13 @@ $color-3: #e74c3c;
   label img{
     width: 150px;
     height: 150px;
-    border: 1px solid #ddd;
-    padding: 5px;
-    border-radius: 4px;
+
+    padding: 20px;
+
+    border-radius: 32px 32px 32px 32px;
+    -moz-border-radius: 32px 32px 32px 32px;
+    -webkit-border-radius: 32px 32px 32px 32px;
+    border: 5px solid #fff;
   }
 
   #label_color_1 img{
