@@ -65,9 +65,9 @@ gem 'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'popper_js', '~> 1.12.9'
-gem "chartkick"
+gem 'chartkick'
 gem 'highcharts-rails'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'rut_validation'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'

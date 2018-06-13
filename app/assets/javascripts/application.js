@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery3
+//= require bootstrap
 //= require dataTables/jquery.dataTables
 //= require highcharts
 //= require chartkick
