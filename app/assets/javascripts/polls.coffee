@@ -10,15 +10,12 @@ $ ->
     $("#mensaje_motivo").css('border', 'solid 3px');
     if @radio == "3"
       $("#mensaje_motivo").addClass('alert-danger');
-      $("h4.text_motivo").html("<h4>Presionaste el Botón de la Carita Triste</h4>");
       $("#motivo").slideDown();
     else if @radio == "2"
       $("#mensaje_motivo").addClass('alert-warning');
-      $("h4.text_motivo").html("<h4>Presionaste el Botón de la Carita ni Fu ni Fa</h4>");
       $("#motivo").slideDown();
     else
       $("#mensaje_motivo").addClass('alert-success');
-      $("h4.text_motivo").html("<h4>Presionaste el Botón de la Carita Feliz</h4>");
       $("#motivo").hide();
 
   $("#user_rut").blur ->

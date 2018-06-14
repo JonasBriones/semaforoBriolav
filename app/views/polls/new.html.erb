@@ -45,9 +45,8 @@
   </div>
 
   <div id="mensaje_motivo">
-    <h4 class="text_motivo"></h4>
     <div id="motivo" class="collapse">
-        <%= ff.label :motivo, "Seleccione el motivo" %></br>
+        <%= ff.label :motivo, "Seleccione un motivo" %></br>
         <%= ff.select :motivo, [['Laboral', 'Laboral'], ['Personal', 'Personal'], ['Ambos', 'Ambos']], {}, {:class => "form-control col-4"} %>
     </div>
 <% end %>
