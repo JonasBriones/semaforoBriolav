@@ -20,26 +20,32 @@ $ ->
 
   $("#user_rut").blur ->
     @rut = $("#user_rut").val()
-    new_rut = formateaRut @rut
-    $("#user_rut").val( new_rut );
-    if Valida_Rut new_rut
-      $.ajax '/users/search_user',
-        type: 'GET',
-        dataType: 'JSON',
-        data:
-          rut: new_rut,
-        asnyc: false,
-        success: (data) ->
-          console.log(data.nombre)
-          document.getElementById('user_polls_attributes_0_user_id').value = data.id;
-          document.getElementById('user_nombre').value = data.nombre;
-          document.getElementById('user_nombre').disabled = true;
-          document.getElementById('user_genero').value = data.genero;
-          document.getElementById('user_genero').disabled = true;
-          document.getElementById('fnacimiento').value = data.fnacimiento;
-          document.getElementById('fnacimiento').disabled = true;
-    else
-      console.log("rut incorrecto")
+    if @rut != ""
+      new_rut = formateaRut @rut
+      $("#user_rut").val( new_rut );
+
+      if Valida_Rut new_rut
+        $.ajax '/users/search_user',
+          type: 'GET',
+          dataType: 'JSON',
+          data:
+            rut: new_rut,
+          asnyc: false,
+          success: (data) ->
+            console.log(data.nombre)
+            document.getElementById('user_polls_attributes_0_user_id').value = data.id;
+            document.getElementById('user_nombre').value = data.nombre;
+            document.getElementById('user_nombre').disabled = true;
+            document.getElementById('user_genero').value = data.genero;
+            document.getElementById('user_genero').disabled = true;
+            document.getElementById('fnacimiento').value = data.fnacimiento;
+            document.getElementById('fnacimiento').disabled = true;
+      else
+        console.log("rut incorrecto");
+        $('#myModal').modal('show');
+
+  $('#myModal').click ->
+    $('#myModal').modal('hide');
 
   Highcharts.setOptions(Highcharts.theme);
 
